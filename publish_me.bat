@@ -1,0 +1,1 @@
+msbuild ClickOncePublishExample.sln /t:TargetRoot /m
