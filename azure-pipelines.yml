@@ -36,3 +36,5 @@ steps:
   inputs:
     solution: '**/*.sln'
     msbuildArguments: '/t:IncRevisionNumber /t:Testing'
+    clean: true
+    
