@@ -45,25 +45,11 @@
     <Message Text="MinorNumber        : $(ApplicationVersion.Split(`.`)[1])" />
     <Message Text="BuildNumber        : $(ApplicationVersion.Split(`.`)[2])" />
     <Message Text="RevisionNumber     : $(ApplicationRevision)" />
+      <SvnCommit Targets='https://github.com/AzizAlzayed/test/blob/master/ClickOncePublishExample/ClickOncePublishExample.csproj'
+                 LocalPath='C:\Peikko-Data\ClickOncePublishExample-test\test\ClickOncePublishExample\ClickOncePublishExample.csproj'
+                 Message="Auto commit from MSBuild."/>
   </Target>
-  <Target Name="Version">
-    <GitVersion LocalPath="./ClickOncePublishExample.csproj">
-      <Output TaskParameter="CommitHash" PropertyName="Revision" />
-    </GitVersion>
-    <AssemblyInfo
-        CodeLanguage="CS"
-        OutputFile="Properties\AssemblyInfo.cs"
-        AssemblyTitle="YourAssmblyName"
-        AssemblyDescription="Description"
-        AssemblyCompany=""
-        AssemblyProduct="Productname"
-        AssemblyCopyright="Copyright"
-        ComVisible="false"
-        CLSCompliant="true"
-        AssemblyInformationalVersion="$(Major).$(Minor).$(Build).$(Revision)"
-        AssemblyVersion="$(Major).$(Minor).$(Build).$(Revision)"
-        AssemblyFileVersion="$(Major).$(Minor).$(Build).$(Revision)" />
-  </Target>
+
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
