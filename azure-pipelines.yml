@@ -14,6 +14,7 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  
 
 steps:
 - task: NuGetToolInstaller@1
@@ -35,6 +36,7 @@ steps:
 - task: MSBuild@1
   inputs:
     solution: '**/*.sln'
-    msbuildArguments: '/t:IncRevisionNumber /t:Testing'
+    msbuildArguments: '/t:IncRevisionNumber /t:Testing /p:Version='
     clean: true
+    
     
