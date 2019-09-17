@@ -45,11 +45,14 @@
     <Message Text="MinorNumber        : $(ApplicationVersion.Split(`.`)[1])" />
     <Message Text="BuildNumber        : $(ApplicationVersion.Split(`.`)[2])" />
     <Message Text="RevisionNumber     : $(ApplicationRevision)" />
-      <SvnCommit Targets='https://github.com/AzizAlzayed/test/blob/master/ClickOncePublishExample/ClickOncePublishExample.csproj'
-                 LocalPath='C:\Peikko-Data\ClickOncePublishExample-test\test\ClickOncePublishExample\ClickOncePublishExample.csproj'
+      <SvnCommit Targets=""
+                 LocalPath="$(internalpath)"
                  Message="Auto commit from MSBuild."/>
   </Target>
-
+<PropertyGroup>
+	<externalpath>"https://github.com/AzizAlzayed/test/blob/master/ClickOncePublishExample/ClickOncePublishExample.csproj"</externalpath>
+	<internalpath>./ClickOncePublishExample.csproj</internalpath>
+</PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
