@@ -1,42 +1,78 @@
-# .NET Desktop
 
+# .NET Desktop
 # Build and run tests for .NET Desktop or Windows classic desktop solutions.
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
 
 trigger:
 - master
-
 pool:
   vmImage: 'windows-latest'
 
 variables:
+  patch: $[counter('VersionCounter', 0)]
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  
+
 
 steps:
+  
+- checkout: self
+  persistCredentials: true
+  clean: true
+- task: MSBuild@1
+  inputs:
+    solution: '**/*.sln'
+    msbuildArguments: '/t:IncRevisionNumber'
 - task: NuGetToolInstaller@1
-
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
 - task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    command: build
+    selectOrConfig: config
+    projects: '**/*.sln'
+    arguments: '/t:IncRevisionNumber' # Update this to match your need
 - task: MSBuild@1
   inputs:
     solution: '**/*.sln'
-    msbuildArguments: '/t:IncRevisionNumber /t:Testing /p:Version='
+    msbuildArguments: '/t:GetNextVersion'
     clean: true
-    
-    
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'custom'
+    projects: '**/*.sln'
+    custom: 'msbuild'
+    arguments: '/t:IncRevisionNumber'
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |               
+      git checkout -b temp
+
+      git diff origin/master temp
+
+      git branch -f master temp
+      git checkout master
+
+      git branch -d temp
+
+      git config  user.email "aziz.alzayed@peikko.com"    
+      git config  user.name "Aziz Alzayed"      
+     
+      git add -A    
+      git commit -a -m 'testing commiting'    
+      git push origin master
