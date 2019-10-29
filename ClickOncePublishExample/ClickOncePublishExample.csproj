@@ -9,7 +9,7 @@
     </CreateProperty>
     <Message Text="ApplicationRevision        : $(ApplicationRevision)" />
     <!--this XMLPoke to edit the value in its orginal file-->
-     <XmlPoke XmlInputPath="./ClickOncePublishExample.csproj" Namespaces="&lt;Namespace Prefix='x' Uri='http://schemas.microsoft.com/developer/msbuild/2003'/&gt;" Query="/x:Project/x:PropertyGroup/x:ApplicationRevision" Value="$(ApplicationRevision)" />
+    <XmlPoke XmlInputPath="./ClickOncePublishExample.csproj" Namespaces="&lt;Namespace Prefix='x' Uri='http://schemas.microsoft.com/developer/msbuild/2003'/&gt;" Query="/x:Project/x:PropertyGroup/x:ApplicationRevision" Value="$(ApplicationRevision)" />
     <Message Text="ApplicationRevision        : $(ApplicationRevision)" />
   </Target>
   <Target Name="IncMinorNumber">
@@ -76,7 +76,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\Users\alzayazi\source\repos\publish_location</InstallUrl>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.*</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>

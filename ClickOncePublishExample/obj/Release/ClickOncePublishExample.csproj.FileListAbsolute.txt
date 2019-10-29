@@ -20,3 +20,9 @@ C:\Peikko-Data\ClickOncePublishExample\ClickOncePublishExample\obj\Release\Click
 C:\Peikko-Data\ClickOncePublishExample\ClickOncePublishExample\obj\Release\ClickOncePublishExample.application
 C:\Peikko-Data\ClickOncePublishExample\ClickOncePublishExample\obj\Release\ClickOncePublishExample.exe
 C:\Peikko-Data\ClickOncePublishExample\ClickOncePublishExample\obj\Release\ClickOncePublishExample.pdb
+d:\a\1\s\ClickOncePublishExample\bin\Release\ClickOncePublishExample.exe.config
+d:\a\1\s\ClickOncePublishExample\bin\Release\ClickOncePublishExample.exe
+d:\a\1\s\ClickOncePublishExample\bin\Release\ClickOncePublishExample.pdb
+d:\a\1\s\ClickOncePublishExample\obj\Release\ClickOncePublishExample.csprojAssemblyReference.cache
+d:\a\1\s\ClickOncePublishExample\obj\Release\ClickOncePublishExample.exe
+d:\a\1\s\ClickOncePublishExample\obj\Release\ClickOncePublishExample.pdb
