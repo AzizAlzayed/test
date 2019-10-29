@@ -76,7 +76,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\Users\alzayazi\source\repos\publish_location</InstallUrl>
-    <ApplicationRevision>429</ApplicationRevision>
+    <ApplicationRevision>432</ApplicationRevision>
     <ApplicationVersion>1.0.0.*</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
